@@ -5,7 +5,8 @@ FROM centos
 RUN yum install httpd -y
 
 # Tercera capa: Copiamos el folder en el document root de apache
-COPY beryllium /var/www/html
+# COPY beryllium /var/www/html
+COPY startbootstrap-freelancer-master /var/www/html
 
 # Cuarta capa: Levanta el servidor apache y lo deje FOREGROUND
 CMD apachectl -DFOREGROUND
