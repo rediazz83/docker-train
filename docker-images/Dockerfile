@@ -8,5 +8,11 @@ RUN yum install httpd -y
 # COPY beryllium /var/www/html
 COPY startbootstrap-freelancer-master /var/www/html
 
-# Cuarta capa: Levanta el servidor apache y lo deje FOREGROUND
+# Cuarta capa: Seteamos una variable de entorno
+ENV contenido test
+
+# Quinta capa: Escribimos la variable en un archivo
+RUN echo "$contenido" > /var/www/html/prueba.html
+
+# Sexta capa: Levanta el servidor apache y lo deje FOREGROUND
 CMD apachectl -DFOREGROUND
